@@ -18,8 +18,8 @@ interface Props {
 }
 
 export const Card = styled.div<Props>`
-  width: 1000px;
-  height: 540px;
+  width: 1440px;
+  height: 680px;
   background: linear-gradient(rgba(0, 0, 0, 0.253), rgba(38, 23, 88, 0.5));
 
   color: #f4f4f4;
