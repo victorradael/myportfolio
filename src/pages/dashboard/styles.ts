@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
-import keyboard from "../../assets/kb3.png";
-import logos from "../../assets/kb4.png";
+import background from "../../assets/background.png";
+import logos from "../../assets/kb4invertidos.png";
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
   background: linear-gradient(rgba(21, 6, 58, 0.383), rgba(0, 0, 0, 0.253)),
-    url(${keyboard}) no-repeat fixed center;
+    url(${background}) no-repeat fixed center;
 
   overflow: hidden;
   display: flex;
