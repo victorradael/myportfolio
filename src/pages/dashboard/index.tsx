@@ -1,6 +1,8 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
+import axios from "axios";
 
+import api from "../../services/api";
 import logos from "../../assets/SideLogos.png";
 
 import {
@@ -14,8 +16,38 @@ import {
   DevInfoContacts,
 } from "./styles";
 
+interface IUser {
+  login: string;
+  avatar_url: string;
+  name: string;
+  bio: string;
+  repos_url: string;
+}
+
+interface IRepository {}
+
 const Dashboard: React.FC = () => {
   const [rotate, setRotate] = useState(false);
+  const [user, setUser] = useState<IUser>({} as IUser);
+  const [repositories, setRepositories] = useState<IRepository[]>([]);
+
+  useEffect(() => {
+    async function loadUser() {
+      const response = await api.get("/victorradael");
+      console.log(response.data);
+      setUser(response.data);
+
+      if (response) {
+        const repos = await axios.get(
+          `https://api.github.com/users/${user.login}/repos`
+        );
+        console.log(repos.data);
+        setRepositories(repos.data);
+      }
+    }
+
+    loadUser();
+  }, [user.login]);
 
   const handleClick = useCallback(() => {
     if (rotate) {
@@ -32,20 +64,11 @@ const Dashboard: React.FC = () => {
         <Front rotate={rotate}>
           <DevInfo>
             <DevInfoHeader>
-              <img
-                src="https://avatars2.githubusercontent.com/u/53879758?s=460&u=4658453ce742cba23ca4624949e8d4dd521f1513&v=4"
-                alt="Victor Radael Photo"
-              />
-              <h1>Victor Radael</h1>
+              <img src={user.avatar_url} alt="Victor Radael Photo" />
+              <h1>{user.name}</h1>
             </DevInfoHeader>
             <DevInfoDetails>
-              <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Tellus rutrum tellus pellentesque eu tincidunt tortor aliquam.
-                Eget gravida cum sociis natoque penatibus et. Diam quis enim
-                lobortis scelerisque fermentum dui faucibus.
-              </div>
+              <div>{user.bio}</div>
               <DevInfoContacts>
                 <div>
                   <a href="https://github.com/victorradael">

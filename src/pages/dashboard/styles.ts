@@ -83,6 +83,12 @@ export const DevInfoHeader = styled.div`
   img {
     height: 50%;
     border-radius: 50%;
+    border: 4px solid #764abc;
+    transition: 0.4s;
+
+    &:hover {
+      border: 4px solid #61dafb;
+    }
   }
 
   h1 {
