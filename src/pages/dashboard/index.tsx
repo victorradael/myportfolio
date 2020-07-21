@@ -16,6 +16,8 @@ import {
   DevInfoHeader,
   DevInfoDetails,
   DevInfoContacts,
+  ListOfRepositories,
+  Repository,
 } from "./styles";
 
 interface IUser {
@@ -26,7 +28,12 @@ interface IUser {
   repos_url: string;
 }
 
-interface IRepository {}
+interface IRepository {
+  id: number;
+  name: string;
+  html_url: string;
+  description: string;
+}
 
 const Dashboard: React.FC = () => {
   const [rotate, setRotate] = useState<boolean>(false);
@@ -68,7 +75,7 @@ const Dashboard: React.FC = () => {
         <Front rotate={rotate}>
           <DevInfo>
             <DevInfoHeader>
-              <img src={user.avatar_url} alt="Victor Radael Photo" />
+              <img src={user.avatar_url} alt="Profile" />
               <h1>{user.name}</h1>
             </DevInfoHeader>
             <DevInfoDetails>
@@ -95,7 +102,17 @@ const Dashboard: React.FC = () => {
           <img src={logos} alt="Side Logos" />
         </Front>
         <Back rotate={rotate}>
-          <div>Parte de trás</div>
+          <h1>Repositories</h1>
+          <ListOfRepositories>
+            {repositories.map((repository) => (
+              <Repository key={repository.id}>
+                <a href={repository.html_url}>
+                  <h2>{repository.name}</h2>
+                  <p>{repository.description}</p>
+                </a>
+              </Repository>
+            ))}
+          </ListOfRepositories>
         </Back>
       </Card>
     </Container>
