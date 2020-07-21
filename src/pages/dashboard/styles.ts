@@ -11,8 +11,37 @@ export const Container = styled.div`
 
   overflow: hidden;
 
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   perspective: 1000px;
+`;
+
+export const ButtonRotate = styled.button`
+  height: 50px;
+  width: 50px;
+  border: none;
+  background: #61dafb;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 16px;
+  color: #764abc;
+  transition: 0.4s;
+  margin-bottom: 32px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 10px 10px rgba(160, 114, 186, 0.5);
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    color: #61dafb;
+    background: #764abc;
+    box-shadow: 1px 1px 15px 15px rgba(160, 114, 186, 0.5);
+  }
 `;
 
 interface Props {
@@ -26,8 +55,7 @@ export const Card = styled.div<Props>`
 
   color: #f4f4f4;
 
-  margin: 0 auto;
-  box-shadow: 1px 1px 5px 5px rgba(160, 114, 186, 0.2);
+  box-shadow: 1px 1px 5px 5px rgba(160, 114, 186, 0.5);
   border-radius: 16px;
 
   transition: transform 0.8s;
@@ -68,8 +96,16 @@ export const DevInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: 5px solid transparent;
+
+  border-radius: 16px;
+  transition: 0.7s;
 
   padding: 16px;
+
+  &:hover {
+    border: 5px solid #764abc;
+  }
 `;
 
 export const DevInfoHeader = styled.div`
@@ -94,6 +130,8 @@ export const DevInfoHeader = styled.div`
   h1 {
     color: #764abc;
     transition: 0.4s;
+    font-family: "Press Start 2P", cursive;
+    font-size: 24px;
     &:hover {
       color: #61dafb;
     }
@@ -105,13 +143,15 @@ export const DevInfoDetails = styled.div`
   display: flex;
   flex-direction: column;
 
-  div {
+  p {
     text-align: justify;
-    margin-bottom: 32px;
+
+    font-family: "Roboto", sans-serif;
   }
 `;
 
 export const DevInfoContacts = styled.div`
+  margin-top: 48px;
   width: 100%;
   display: flex;
   flex-direction: column;

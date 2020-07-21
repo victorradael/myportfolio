@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
+import { GiReturnArrow } from "react-icons/gi";
 import axios from "axios";
 
 import api from "../../services/api";
@@ -8,6 +9,7 @@ import logos from "../../assets/SideLogos.png";
 import {
   Card,
   Container,
+  ButtonRotate,
   Front,
   Back,
   DevInfo,
@@ -27,7 +29,7 @@ interface IUser {
 interface IRepository {}
 
 const Dashboard: React.FC = () => {
-  const [rotate, setRotate] = useState(false);
+  const [rotate, setRotate] = useState<boolean>(false);
   const [user, setUser] = useState<IUser>({} as IUser);
   const [repositories, setRepositories] = useState<IRepository[]>([]);
 
@@ -59,7 +61,9 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      <button onClick={handleClick}>Girar</button>
+      <ButtonRotate onClick={handleClick}>
+        <GiReturnArrow size={20} />
+      </ButtonRotate>
       <Card rotate={rotate}>
         <Front rotate={rotate}>
           <DevInfo>
@@ -68,7 +72,7 @@ const Dashboard: React.FC = () => {
               <h1>{user.name}</h1>
             </DevInfoHeader>
             <DevInfoDetails>
-              <div>{user.bio}</div>
+              <p>{user.bio}</p>
               <DevInfoContacts>
                 <div>
                   <a href="https://github.com/victorradael">
