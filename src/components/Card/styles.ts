@@ -1,39 +1,12 @@
 import styled, { css } from "styled-components";
-import logos from "../../assets/kb4invertidos.png";
-
-export const ButtonRotate = styled.button`
-  height: 50px;
-  width: 50px;
-  border: none;
-  background: #61dafb;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 16px;
-  color: #764abc;
-  transition: 0.4s;
-  margin-bottom: 32px;
-  border-radius: 50%;
-  box-shadow: 1px 1px 10px 10px rgba(160, 114, 186, 0.5);
-
-  &:focus {
-    outline: none;
-  }
-
-  &:hover {
-    color: #61dafb;
-    background: #764abc;
-    box-shadow: 1px 1px 15px 15px rgba(160, 114, 186, 0.5);
-  }
-`;
 
 interface Props {
   rotate: boolean;
 }
 
 export const View = styled.div<Props>`
-  width: 1080px;
-  height: 600px;
+  min-width: 30rem;
+  min-height: 20rem;
   background: rgba(0, 0, 0, 0.6);
 
   color: #f4f4f4;
@@ -49,20 +22,17 @@ export const View = styled.div<Props>`
     props.rotate &&
     css`
       transform: rotateY(180deg);
-      background: url(${logos}) no-repeat fixed center;
     `}
 `;
 
 export const Front = styled.div<Props>`
   width: 100%;
   height: 100%;
-  position: absolute;
-  border-radius: 16px;
+  border-radius: 2rem;
 
   overflow: hidden;
 
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(21, 6, 58, 0.8))
     no-repeat fixed center;
 
@@ -81,26 +51,18 @@ export const DevInfo = styled.div`
   align-items: center;
   border: 5px solid transparent;
 
-  border-radius: 16px;
-  transition: 0.7s;
+  border-radius: 2rem;
 
   padding: 16px;
-
-  &:hover {
-    border: 5px solid #764abc;
-  }
 `;
 
 export const DevInfoHeader = styled.div`
-  height: 200px;
-  width: 100%;
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   img {
-    height: 50%;
+    height: 5rem;
     border-radius: 50%;
     border: 4px solid #764abc;
     transition: 0.4s;
@@ -114,7 +76,7 @@ export const DevInfoHeader = styled.div`
     color: #764abc;
     transition: 0.4s;
     font-family: "Press Start 2P", cursive;
-    font-size: 24px;
+    font-size: 1rem;
     &:hover {
       color: #61dafb;
     }
@@ -122,7 +84,7 @@ export const DevInfoHeader = styled.div`
 `;
 
 export const DevInfoDetails = styled.div`
-  width: 100%;
+  width: 30%;
   display: flex;
   flex-direction: column;
 
@@ -186,54 +148,4 @@ export const Back = styled.div<Props>`
     css`
       backface-visibility: hidden;
     `}
-`;
-
-export const ListOfRepositories = styled.div`
-  width: 100%;
-  padding: 8px;
-  height: 80%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  border-bottom: 5px solid #764abc;
-  border-top: 5px solid #764abc;
-  border-radius: 16px 0 0 16px;
-
-  &::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar {
-    width: 6px;
-    background: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #61dafb;
-  }
-`;
-
-export const Repository = styled.div`
-  border: 1px solid #764abc;
-  border-radius: 16px;
-  width: 100%;
-  padding: 8px 16px;
-  box-sizing: border-box;
-  margin-bottom: 16px;
-
-  a {
-    text-decoration: none;
-
-    h2 {
-      color: #764abc;
-      font-family: "Press Start 2P", cursive;
-      font-size: 24px;
-    }
-
-    p {
-      color: #61dafb;
-      font-family: "Roboto", sans-serif;
-    }
-  }
-  transition: 0.4s;
-  &:hover {
-    box-shadow: 1px 1px 10px 10px rgba(97, 217, 251, 0.5);
-  }
 `;

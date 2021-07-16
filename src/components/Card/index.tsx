@@ -1,22 +1,18 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaInstagram, FaTwitter } from "react-icons/fa";
-import { GiReturnArrow } from "react-icons/gi";
 import axios from "axios";
 
 import api from "../../services/api";
-import logos from "../../assets/SideLogos.png";
+
 
 import {
-  ButtonRotate,
   Front,
   DevInfo,
   DevInfoContacts,
   DevInfoDetails,
   DevInfoHeader,
-  ListOfRepositories,
-  Back,
-  Repository,
-  View
+  View, 
+  Back
 } from "./styles";
 
 interface IUser {
@@ -37,21 +33,14 @@ interface IRepository {
 const Card: React.FC = () => {
   const [rotate, setRotate] = useState<boolean>(false);
   const [user, setUser] = useState<IUser>({} as IUser);
-  const [repositories, setRepositories] = useState<IRepository[]>([]);
+
 
   useEffect(() => {
     async function loadUser() {
       const response = await api.get("/victorradael");
-      console.log(response.data);
       setUser(response.data);
 
-      if (response) {
-        const repos = await axios.get(
-          `https://api.github.com/users/${user.login}/repos`
-        );
-        console.log(repos.data);
-        setRepositories(repos.data);
-      }
+      
     }
 
     loadUser();
@@ -66,10 +55,7 @@ const Card: React.FC = () => {
   }, [rotate]);
   return (
     <>
-      <ButtonRotate onClick={handleClick}>
-        <GiReturnArrow size={20} />
-      </ButtonRotate>
-      <View rotate={rotate}>
+      <View rotate={rotate} onClick={handleClick}>
         <Front rotate={rotate}>
           <DevInfo>
             <DevInfoHeader>
@@ -97,20 +83,9 @@ const Card: React.FC = () => {
               </DevInfoContacts>
             </DevInfoDetails>
           </DevInfo>
-          <img src={logos} alt="Side Logos" />
         </Front>
         <Back rotate={rotate}>
-          <h1>Repositories</h1>
-          <ListOfRepositories>
-            {repositories.map((repository) => (
-              <Repository key={repository.id}>
-                <a href={repository.html_url}>
-                  <h2>{repository.name}</h2>
-                  <p>{repository.description}</p>
-                </a>
-              </Repository>
-            ))}
-          </ListOfRepositories>
+          <h1>Back</h1>
         </Back>
       </View>
     </>
