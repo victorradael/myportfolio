@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { FaArrowRight } from "react-icons/fa";
+import Theme from "../../utils/theme.json";
 
 interface Props {
   rotate: boolean;
@@ -17,22 +18,32 @@ export const ArrowRight = styled(FaArrowRight)`
 
   &:hover {
     cursor: pointer;
-    color: rgba(97, 217, 251, 1);
+    color: ${Theme.colors.secondary};
   }
 `;
 
 export const View = styled.div<Props>`
+  position: absolute;
+  top: 15rem;
   width: 40rem;
   height: 22.5rem;
-  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(21, 6, 58, 0.9));
+  background: linear-gradient(
+    33deg,
+    rgba(0, 0, 0, 0.9) 50%,
+    rgba(48, 48, 48, 0.9)
+  );
   color: #f4f4f4;
-  box-shadow: 1px 1px 5px 5px rgba(97, 217, 251, 0.5);
+  box-shadow: 1px 1px 5px 5px ${Theme.colors.lightWhite};
   border-radius: 16px;
   padding: 1.375rem 4rem;
   font-family: "Roboto", sans-serif;
 
-  transition: transform 0.8s;
+  transition: all 0.8s;
   transform-style: preserve-3d;
+
+  &:hover {
+    box-shadow: 1px 1px 5px 5px ${Theme.colors.lightSecondary};
+  }
 
   ${(props) =>
     props.rotate &&
@@ -68,12 +79,12 @@ export const DevInfoHeader = styled.div`
 export const ProfileImage = styled.img`
   height: 7.375rem;
   border-radius: 50%;
-  border: 4px solid #764abc;
+  border: 4px solid ${Theme.colors.hoverOff};
   margin-right: 2rem;
   transition: 0.4s;
 
   &:hover {
-    border: 4px solid #61dafb;
+    border: 4px solid ${Theme.colors.secondary};
   }
 `;
 
@@ -82,16 +93,13 @@ export const Bio = styled.p`
 `;
 
 export const Title = styled.h1`
-  color: #764abc;
   transition: 0.4s;
   font-weight: bold;
   font-size: 2rem;
   text-transform: uppercase;
   font-family: "Staatliches", cursive;
   margin: 0.3rem 0rem;
-  &:hover {
-    color: #61dafb;
-  }
+  color: ${Theme.colors.secondary};
 `;
 
 export const DevInfoContacts = styled.div`
@@ -104,10 +112,10 @@ export const DevInfoContacts = styled.div`
   justify-content: space-between;
   a {
     text-align: center;
-    color: #764abc;
+    color: ${Theme.colors.hoverOff};
     transition: 0.4s;
     &:hover {
-      color: #61dafb;
+      color: ${Theme.colors.secondary};
     }
   }
 `;
