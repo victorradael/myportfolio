@@ -5,14 +5,16 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  flex: 1;
 `;
 
 export const InfoCard = styled.div`
   margin-top: 5rem;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 2rem 1rem;
 
   max-width: 40rem;
 
