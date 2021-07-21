@@ -3,16 +3,23 @@ import Theme from "../../utils/theme.json";
 import banner from "../../assets/banner.jpeg";
 
 export const Container = styled.div`
+  background: ${Theme.colors.blackGlass};
+
   display: flex;
+  box-sizing: border-box;
+  justify-content: left;
   align-items: center;
   width: 100%;
-  background: ${Theme.colors.blackGlass};
-  padding: 0 10rem;
-  box-sizing: border-box;
+  padding: 0rem 0.3rem;
 
   h1 {
+    margin-left: 3rem;
     font-family: "Staatliches", cursive;
     color: ${Theme.colors.secondary};
+
+    @media (max-width: 600px) {
+      margin-left: 1rem;
+    }
   }
 
   p {
@@ -23,7 +30,7 @@ export const Container = styled.div`
 
 export const Banner = styled.div`
   display: flex;
-  height: 80rem;
+  height: 30rem;
   width: 100%;
   background-image: url(${banner});
   background-position: 0rem 70rem;

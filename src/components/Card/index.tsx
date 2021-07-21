@@ -138,28 +138,28 @@ const Card: React.FC = () => {
               rel="noopener noreferrer"
               target="_blank"
             >
-              <FaGithub size="3rem" />
+              <FaGithub />
             </a>
             <a
               href="https://www.linkedin.com/in/victorradael/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <FaLinkedin size="3rem" />
+              <FaLinkedin />
             </a>
             <a
               href="https://www.instagram.com/victorradael/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <FaInstagram size="3rem" />
+              <FaInstagram />
             </a>
             <a
               href="https://twitter.com/VictorRadael"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <FaTwitter size="3rem" />
+              <FaTwitter />
             </a>
           </DevInfoContacts>
           <Email>victorradael@hotmail.com</Email>
@@ -168,7 +168,7 @@ const Card: React.FC = () => {
           <Title>Knowledge</Title>
           <Techs>
             {techs.map((tech) => {
-              return tech.icon;
+              return <span>{tech.icon}</span>;
             })}
           </Techs>
         </Back>

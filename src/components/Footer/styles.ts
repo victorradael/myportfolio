@@ -2,15 +2,17 @@ import styled from "styled-components";
 import Theme from "../../utils/theme.json";
 
 export const Container = styled.footer`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
   background: ${Theme.colors.blackGlass};
-  padding: 0 10rem;
+
+  display: flex;
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0rem 0.3rem;
 
   p {
     color: #fff;
+    font-size: 1rem;
   }
 `;

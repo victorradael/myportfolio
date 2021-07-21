@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
-
+  min-height: 100vh;
   overflow: hidden;
   background: linear-gradient(
     180deg,
@@ -13,5 +12,4 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  perspective: 1000px;
 `;
