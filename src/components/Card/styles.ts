@@ -51,6 +51,18 @@ export const View = styled.div<Props>`
     box-shadow: 1px 1px 5px 5px ${Theme.colors.lightSecondary};
   }
 
+  //
+
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+
+  background-color: rgba(126, 126, 126, 0.212);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.411);
+
+  //
+
   @media (max-width: 600px) {
     top: 8rem;
     padding: 1.375rem 1rem;
@@ -95,14 +107,14 @@ export const DevInfoHeader = styled.div`
 
 export const ProfileImage = styled.img`
   height: 7.375rem;
-  border-radius: 50%;
-  border: 4px solid ${Theme.colors.hoverOff};
   margin-right: 2rem;
   transition: 0.4s;
 
-  &:hover {
-    border: 4px solid ${Theme.colors.secondary};
-  }
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover;
+
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 
   @media (max-width: 600px) {
     flex-direction: column;
