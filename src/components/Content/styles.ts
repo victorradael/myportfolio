@@ -24,3 +24,12 @@ export const InfoCard = styled.div`
     color: ${Theme.colors.secondary};
   }
 `;
+
+export const DescribeCard = styled.div`
+  padding: 0rem 0rem 0rem;
+
+  @media (max-width: 1920px) {
+    padding: 4rem 0rem 0rem;
+  }
+  max-width: 30rem;
+`;
