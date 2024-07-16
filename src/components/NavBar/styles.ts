@@ -7,7 +7,7 @@ export const Container = styled.div`
 
   display: flex;
   box-sizing: border-box;
-  justify-content: left;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   padding: 0rem 0.3rem;
@@ -34,4 +34,33 @@ export const Banner = styled.div`
   width: 100%;
   background-image: url(${banner});
   background-position: 0rem 70rem;
+`;
+
+export const DevInfoContacts = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 20rem;
+  /* padding: 0rem 6rem; */
+  box-sizing: border-box;
+  margin-bottom: 0;
+  justify-content: space-between;
+
+  a {
+    text-align: center;
+    color: ${Theme.colors.hoverOff};
+    transition: 0.4s;
+    &:hover {
+      color: ${Theme.colors.secondary};
+    }
+
+    svg {
+      height: 1.6rem;
+      width: 1.6rem;
+
+      @media (max-width: 600px) {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+  }
 `;
