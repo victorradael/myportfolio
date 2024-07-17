@@ -9,6 +9,7 @@ import {
   Front,
   Title,
   DevInfoHeader,
+  DevInfoHeaderText,
   View,
   ProfileImage,
   Bio
@@ -39,10 +40,13 @@ const Card: React.FC = () => {
       <View>
        
         <Front>
-          <Title>{user.name}</Title>
           <DevInfoHeader>
             <ProfileImage src={user.avatar_url} alt="Profile" />
+            <DevInfoHeaderText>
+
+            <Title>{user.name}</Title>
             <Bio>{user.bio}</Bio>
+            </DevInfoHeaderText>
           </DevInfoHeader>
           <Carousel/>
         </Front>
