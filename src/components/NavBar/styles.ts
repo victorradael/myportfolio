@@ -2,6 +2,21 @@ import styled from "styled-components";
 import Theme from "../../utils/theme.json";
 import banner from "../../assets/banner.jpeg";
 
+export const Logo = styled.h1`
+  line-height: 2rem;
+  font-size: 2rem;
+
+  margin-left: 3rem;
+  font-family: "Staatliches", cursive;
+  color: ${Theme.colors.secondary};
+
+  @media (max-width: 600px) {
+    margin-left: 1rem;
+    line-height: 1.4rem;
+    font-size: 1.4rem;
+  }
+`;
+
 export const Container = styled.div`
   background: ${Theme.colors.blackGlass};
 
@@ -11,16 +26,6 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   padding: 0rem 0.3rem;
-
-  h1 {
-    margin-left: 3rem;
-    font-family: "Staatliches", cursive;
-    color: ${Theme.colors.secondary};
-
-    @media (max-width: 600px) {
-      margin-left: 1rem;
-    }
-  }
 
   p {
     margin-left: 3rem;

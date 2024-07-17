@@ -18,6 +18,12 @@ export const EmblaContainer = styled.div`
   display: flex;
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
+
+  @media (max-width: 600px) {
+    svg {
+      height: 3rem;
+    }
+  }
 `;
 
 export const EmblaSlide = styled.div`

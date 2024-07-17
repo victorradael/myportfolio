@@ -70,6 +70,18 @@ export const DevInfoHeader = styled.div`
   }
 `;
 
+export const DevInfoHeaderText = styled.div`
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: left;
+
+  @media (max-width: 600px) {
+    align-items: center;
+  }
+`;
+
 export const ProfileImage = styled.img`
   height: 7.375rem;
   margin-right: 2rem;
@@ -105,4 +117,9 @@ export const Title = styled.h1`
   font-family: "Staatliches", cursive;
   margin: 0.3rem 0rem;
   color: ${Theme.colors.secondary};
+
+  @media (max-width: 600px) {
+    line-height: 1.4rem;
+    font-size: 1.4rem;
+  }
 `;
