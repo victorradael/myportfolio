@@ -22,6 +22,16 @@ export const InfoCard = styled.div`
 
   h1 {
     color: ${Theme.colors.secondary};
+
+    @media (max-width: 600px) {
+      margin-top: 0.6rem;
+      line-height: 1rem;
+      font-size: 1.2em;
+    }
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 0.6rem;
   }
 `;
 
