@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-
-
 import api from "../../services/api";
-import Carousel from "../../components/Carousel"
+import Carousel from "../../components/Carousel";
 
 import {
   Front,
@@ -12,7 +10,7 @@ import {
   DevInfoHeaderText,
   View,
   ProfileImage,
-  Bio
+  Bio,
 } from "./styles";
 
 interface IUser {
@@ -38,17 +36,15 @@ const Card: React.FC = () => {
   return (
     <>
       <View>
-       
         <Front>
           <DevInfoHeader>
             <ProfileImage src={user.avatar_url} alt="Profile" />
             <DevInfoHeaderText>
-
-            <Title>{user.name}</Title>
-            <Bio>{user.bio}</Bio>
+              <Title>{user.name}</Title>
+              <Bio>{user.bio}</Bio>
             </DevInfoHeaderText>
           </DevInfoHeader>
-          <Carousel/>
+          <Carousel />
         </Front>
       </View>
     </>

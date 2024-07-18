@@ -1,7 +1,7 @@
-import React from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoscroll from 'embla-carousel-auto-scroll'
-import {Embla, EmblaContainer, EmblaSlide} from './styles'
+import React from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoscroll from "embla-carousel-auto-scroll";
+import { Embla, EmblaContainer, EmblaSlide } from "./styles";
 import {
   FaDocker,
   FaAngular,
@@ -18,12 +18,20 @@ import {
   FaCss3,
   FaLinux,
   FaPython,
- 
 } from "react-icons/fa";
-import { DiPostgresql, DiMongodb, DiSass, DiGo, DiDjango, DiTerminal } from "react-icons/di";
+import {
+  DiPostgresql,
+  DiMongodb,
+  DiSass,
+  DiGo,
+  DiDjango,
+  DiTerminal,
+} from "react-icons/di";
 
 const Carousel: React.FC = () => {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [Autoscroll({speed: 1})])
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+    Autoscroll({ speed: 1 }),
+  ]);
 
   const techs = [
     {
@@ -97,11 +105,11 @@ const Carousel: React.FC = () => {
   return (
     <Embla ref={emblaRef}>
       <EmblaContainer>
-         {techs.map((tech) => {
-              return <EmblaSlide>{tech.icon}</EmblaSlide>;
-            })}
+        {techs.map((tech) => {
+          return <EmblaSlide>{tech.icon}</EmblaSlide>;
+        })}
       </EmblaContainer>
     </Embla>
-  )
-}
-export default Carousel
+  );
+};
+export default Carousel;
